@@ -18,7 +18,7 @@ do
         lastPayment_array=($lastPayments)
 
         # Check last payment is lucky, if so, break loop.
-        if [[ $lastPayment_array > '1600.00000000' ]]
+        if [[ ${lastPayment_array%.*} > '1500.10000000' ]]
         then
             break
 
