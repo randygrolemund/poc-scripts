@@ -17,11 +17,13 @@ do
         lastPayments=$(curl $blockExplorer_url/$i/transaction  -s -k -X GET –header Content-Type: application/json | jq '.data[0].vout[0].amount' | tr -d '"')
         lastPayment_array=($lastPayments)
 
+        # Check last payment is lucky, if so, break loop.
         if [[ $lastPayment_array > '1600.00000000' ]]
         then
             break
 
         else
+            # Increment counter if block was not a lucky block
             counter=$((counter+1))
 
         fi
