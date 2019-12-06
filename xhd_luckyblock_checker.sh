@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # XHD Lucky block analyzer. Created by BearlyHealz.
 
 # Blockchain Explorer URL
