@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # XHD Lucky block analyzer. Created by BearlyHealz.
+# You must have jq installed. If ubuntu sudo apt -y install jq
 
 # Blockchain Explorer URL
 blockExplorer_url='https://explorer.xrphd.org/explorer/api/blockchain'
