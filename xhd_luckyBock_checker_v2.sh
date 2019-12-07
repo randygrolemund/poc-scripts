@@ -6,13 +6,13 @@
 blockExplorer_url='https://explorer.xrphd.org/explorer/api/blockchain'
 
 # Get data from explorer API
-curl $blockExplorer_url/network -s -k -X GET –header Content-Type: application/json’ > network_explorer.json
+get_blockExplorer=$(curl $blockExplorer_url/network -s -k -X GET –header Content-Type: application/json’)
 
 # Parse accumulatesubsidy (overage)
-get_accumulateSubsidy=$(jq '.accumulatesubsidy' network_explorer.json | tr -d '"' )
+get_accumulateSubsidy=$(jq '.accumulatesubsidy' <<< $get_blockExplorer | tr -d '"' )
 
 # Parse last block hash
-get_lastBlockHash=$(jq '.best.hash' network_explorer.json | tr -d '"' )
+get_lastBlockHash=$(jq '.best.hash' <<< $get_blockExplorer | tr -d '"' )
 
 # Get last payment from API
 lastPayment=$(curl $blockExplorer_url/block/$get_lastBlockHash/transaction  -s -k -X GET –header Content-Type: application/json | jq '.data[0].vout[0].amount' | tr -d '"')
