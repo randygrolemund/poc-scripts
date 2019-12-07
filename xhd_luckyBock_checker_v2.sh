@@ -5,7 +5,6 @@
 # Blockchain Explorer URL
 blockExplorer_url='https://explorer.xrphd.org/explorer/api/blockchain'
 
-
 # Get data from explorer API
 curl $blockExplorer_url/network -s -k -X GET –header Content-Type: application/json’ > network_explorer.json
 
