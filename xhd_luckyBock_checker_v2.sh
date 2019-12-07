@@ -5,8 +5,11 @@
 # Blockchain Explorer URL
 blockExplorer_url='https://explorer.xrphd.org/explorer/api/blockchain/network'
 
+# Get data from explorer API
+curl $blockExplorer_url -s -k -X GET –header Content-Type: application/json’ > network_explorer.json
+
 # Parse accumulatesubsidy (overage)
-get_accumulateSubsidy=$(curl $blockExplorer_url -s -k -X GET –header Content-Type: application/json’ | jq '.accumulatesubsidy' | tr -d '"' | bc)
+get_accumulateSubsidy=$(jq '.accumulatesubsidy' network_explorer.json | tr -d '"' )
 
 # Remove decimal
 get_accumulateSubsidy=${get_accumulateSubsidy%.*}
