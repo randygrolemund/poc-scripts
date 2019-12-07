@@ -3,7 +3,7 @@
 # XHD Lucky block analyzer. Created by BearlyHealz.
 
 # Blockchain Explorer URL
-blockExplorer_url="https://explorer.xrphd.org/explorer/api/blockchain/block"
+blockExplorer_url='https://explorer.xrphd.org/explorer/api/blockchain/block'
 
 # Get last 20 blocks worth of data
 get_blockHash=$(curl $blockExplorer_url?count=20 -s -k -X GET –header Content-Type: application/json’ | jq '.data[].hash' | tr -d '"')
